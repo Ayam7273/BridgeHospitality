@@ -504,7 +504,7 @@ $(document).ready(function () {
   };
   Spectrum.prototype.getStep = function (value) {
     // Find the proper step for rtl sliders by search in inverse direction.
-    // Fixes issue #262.
+    // Fixes issue#262.
     if (this.direction) {
       value = 100 - value;
     }
@@ -642,7 +642,7 @@ $(document).ready(function () {
     if (!isNumeric(entry)) {
       throw new Error("noUiSlider: 'margin' option must be numeric.");
     }
-    // Issue #582
+    // Issue#582
     if (entry === 0) {
       return;
     }
@@ -697,7 +697,7 @@ $(document).ready(function () {
       fixed = entry.indexOf("fixed") >= 0,
       snap = entry.indexOf("snap") >= 0,
       hover = entry.indexOf("hover") >= 0;
-    // Fix #472
+    // Fix#472
     if (drag && !parsed.connect) {
       throw new Error(
         "noUiSlider: 'drag' behaviour must be used with 'connect': true."
@@ -757,7 +757,7 @@ $(document).ready(function () {
   // Test all developer settings and parse to assumption-safe values.
 
   function testOptions(options) {
-    // To prove a fix for #537, freeze options here.
+    // To prove a fix for#537, freeze options here.
     // If the object is modified, an error will be thrown.
     // Object.freeze(options);
     var parsed = {
@@ -964,7 +964,7 @@ $(document).ready(function () {
       }
       event.pageOffset = pageOffset;
       event.points = [x, y];
-      event.cursor = mouse || pointer; // Fix #435
+      event.cursor = mouse || pointer; // Fix#435
       return event;
     }
     // Append a handle to the base.
@@ -1335,7 +1335,7 @@ $(document).ready(function () {
             return false;
           }
           e = fixEvent(e, data.pageOffset);
-          // Ignore right or middle clicks on start #454
+          // Ignore right or middle clicks on start#454
           if (
             events === actions.start &&
             e.buttons !== undefined &&
@@ -1343,7 +1343,7 @@ $(document).ready(function () {
           ) {
             return false;
           }
-          // Ignore right or middle clicks on start #454
+          // Ignore right or middle clicks on start#454
           if (data.hover && e.buttons) {
             return false;
           }
@@ -1362,7 +1362,7 @@ $(document).ready(function () {
     // Handle movement on document for handle and range drag.
 
     function move(event, data) {
-      // Fix #498
+      // Fix#498
       // Check value of .buttons in 'start' to work around a bug in IE10 mobile (data.buttonsProperty).
       // https://connect.microsoft.com/IE/feedback/details/927005/mobile-ie10-windows-phone-buttons-property-of-pointermove-event-always-zero
       // IE9 has .buttons and .which zero on mousemove.
@@ -1457,7 +1457,7 @@ $(document).ready(function () {
           return false;
         }
       }
-      // Fix #551, where a handle gets selected instead of dragged.
+      // Fix#551, where a handle gets selected instead of dragged.
       event.preventDefault();
       // A drag should never propagate up to the 'tap' event.
       event.stopPropagation();
@@ -1738,7 +1738,7 @@ $(document).ready(function () {
       setValues(count, values);
       // Fire the 'set' event for both handles.
       for (i = 0; i < scope_Handles.length; i++) {
-        // Fire the event only for handles that received a new value, as per #579
+        // Fire the event only for handles that received a new value, as per#579
         if (values[i] !== null) {
           fireEvent("set", i);
         }
@@ -1776,7 +1776,7 @@ $(document).ready(function () {
       // Get the step point, then find it in the input list.
       var retour = scope_Locations.map(function (location, index) {
         var step = scope_Spectrum.getApplicableStep(location),
-          // As per #391, the comparison for the decrement step can have some rounding issues.
+          // As per#391, the comparison for the decrement step can have some rounding issues.
           // Round the value to the precision used in the step.
           stepDecimals = countDecimals(String(step[2])),
           // Get the current numeric value
@@ -1885,9 +1885,9 @@ $(document).ready(function () {
       get: valueGet,
       set: valueSet,
       updateOptions: updateOptions,
-      options: options, // Issue #600
-      target: scope_Target, // Issue #597
-      pips: pips, // Issue #594
+      options: options, // Issue#600
+      target: scope_Target, // Issue#597
+      pips: pips, // Issue#594
     };
     // Attach user events.
     events(options.events);
